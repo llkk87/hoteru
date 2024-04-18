@@ -9,6 +9,17 @@ const MessageParser = ({ children, actions }) => {
       actions.handleHello();
       found = true;
     }
+    if (
+      message.includes("fk") ||
+      message.includes("fuck") ||
+      message.includes("幹你") ||
+      message.includes("diu") ||
+      message.includes("fk") ||
+      message.includes("屌")
+    ) {
+      actions.handleFuck();
+      found = true;
+    }
     city.forEach((cityItem) => {
       if (message.includes(cityItem)) {
         actions.handleRecommendation(cityItem);
