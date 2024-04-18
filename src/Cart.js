@@ -146,25 +146,8 @@ function CartList({ favorites, setFavorites, favoritesId, setFavoritesId, cart, 
   };
 
   return (
-    <div className="">
-      <p className=" text-2xl lg:text-3xl">
-        <svg
-          className="w-9 h-9 mr-2 inline text-gray-800 dark:text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z"
-            clip-rule="evenodd"
-          />
-        </svg>
-        My Cart
-      </p>
+    <div className="mx-6">
+      <p className="text-center text-3xl font-bold m-5">My Cart</p>
       <ul className="hotel-cards">
         {cart.map &&
           cart?.map((hotel) => (
@@ -186,13 +169,13 @@ function CartList({ favorites, setFavorites, favoritesId, setFavoritesId, cart, 
           ))}
       </ul>
       <div className="flex flex-col items-end p-4 space-y-2 mb-6">
-        <p className="py-2 text-2xl">
+        <p className="py-2 text-2xl mr-10">
           <span className="text-base text-gray-700">Total: </span>$ {sum}
         </p>{" "}
         {/* 這裡需要total */}
         <Link
           to="/payment"
-          className="bg-[#75BDC8] font-bold text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
+          className="bg-[#75BDC8] font-bold text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 mr-10"
         >
           {" "}
           <svg

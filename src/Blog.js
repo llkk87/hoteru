@@ -8,11 +8,11 @@ import { Block } from "./About";
 
 function Blog() {
   return (
-    <>
+    <div className="">
       <Banner />
       <BlogInfo />
       <Block />
-    </>
+    </div>
   );
 }
 
@@ -35,7 +35,7 @@ function BlogInfo() {
     getblogData();
   }, []);
   return (
-    <div className="mx-4 lg:mx-10 xl:mx-24 ">
+    <div className="mx-10 lg:mx-10 xl:mx-24 ">
       <p className="mt-12 text-4xl font-bold my-8 ">What's New?</p>
       <div className=" grid grid-cols-1 md:mx-1 md:grid-cols-4 lg:grid-cols-6 gap-8	lg:gap-10 lg:mx-4">
         <>

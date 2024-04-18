@@ -36,8 +36,8 @@ function ActInfo() {
     getactData();
   }, []);
   return (
-    <div className="lg:mx-12 mx-10">
-      <p className="mt-12 text-4xl font-bold">Things to do on your trip</p>
+    <div className="lg:mx-12 mx-4">
+      <p className="text-center mt-12 pl-0 text-4xl font-bold md:text-left md:pl-6">Things to do on your trip</p>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8 mx-8">
         <>
           {act &&

@@ -18,7 +18,7 @@ export default function Favorites({
 
   if (currentUser) {
     return (
-      <div className="mt-10 mx-4">
+      <div className="mt-10 mx-6">
         <FavoriteList
           favorites={favorites}
           setFavorites={setFavorites}

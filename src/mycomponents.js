@@ -1254,7 +1254,7 @@ export function SearchFunction({ hotelData, setHotelData, originalHotelData, set
     setCount(count + 1);
   }
   return (
-    <div className="p-2 flex flex-col gap-2 justify-center md:flex-row">
+    <div className="p-2 flex flex-col gap-2 justify-center md:flex-row mt-2">
       <InputDemo params={params} setParams={setParams} />
       <CountryComboBox value={value} setValue={setValue} />
       <DatePickerWithRange date={date} setDate={setDate} />

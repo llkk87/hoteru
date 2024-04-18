@@ -3033,7 +3033,6 @@ function Review() {
           <p className="mb-3 text-gray-500 dark:text-gray-400">
             HOTERU's search filters based on amenities, and price range made it effortless to narrow down my search. The
             detailed hotel profiles, complete with photos and customer reviews, helped me make an informed decision.
-            私は日本人じゃない 助けて 😊
           </p>
         </article>
 
@@ -3108,8 +3107,7 @@ function Review() {
           </footer>
           <p className="mb-3 text-gray-500 dark:text-gray-400">
             The app's seamless booking process, secure payment options, and prompt confirmation made me feel at ease
-            throughout. I highly recommend this hotel app for its user-friendly interface and comprehensive features. Nǐ
-            zhīdào wǒ wèile kāifā zhège wǎngzhàn xīshēngle duōshǎo shuìmián ma? Lǎozi mìng dōu kuài méiliǎo 🥳
+            throughout. I highly recommend this hotel app for its user-friendly interface and comprehensive features.
           </p>
         </article>
       </div>

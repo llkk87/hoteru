@@ -246,9 +246,9 @@ export default App;
 function Footer() {
   return (
     <footer className="bg-[#AAD7D9] dark:bg-gray-900">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
+      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 ">
+        <div className="flex justify-between">
+          <div className="mb-6">
             <a href="https://flowbite.com/" className="flex items-center">
               {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" /> */}
               <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">HOTERU</span>
@@ -395,7 +395,7 @@ function Layout({ hotelData, setHotelData, originalHotelData, setOriginalHotelDa
     <div className="overflow-x-hidden">
       <header className="flex justify-between shadow-md px-8 py-4 md:px-10">
         <div className="notTailwind-left">
-          <Link to="/" className="text-3xl lg:text-4xl font-bold">
+          <Link to="/" className="text-3xl pt-1 md:text-4xl md:pt-0 font-bold">
             HOTERU
           </Link>
         </div>

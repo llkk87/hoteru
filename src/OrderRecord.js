@@ -9,8 +9,8 @@ export default function OrderRecord({ record, setRecord, recTime, setRecTime, ge
   console.log("ORDER RECORD:", record);
 
   return (
-    <div className="">
-      <p className="text-center text-3xl font-bold m-5">Order Record</p>
+    <div className="mx-6">
+      <p className="text-center text-3xl font-bold m-5 mt-7">Order Record</p>
       <ul className="hotel-cards">
         {record?.map((hotel) => (
           <HotelCard

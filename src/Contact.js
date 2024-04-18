@@ -12,9 +12,7 @@ function Banner() {
           backgroundSize: "cover",
         }}
       >
-        <p className=" text-white font-semibold text-5xl lg:text-6xl">
-          Contact Us
-        </p>
+        <p className=" text-white font-semibold text-5xl lg:text-6xl">Contact Us</p>
       </div>
     </div>
   );
@@ -64,9 +62,7 @@ function Grids() {
         </svg>
 
         <p className="text-2xl my-3">Address</p>
-        <p className="text-sm md:text-base text-gray-600">
-          7/F, Millennium Trade Centre,
-        </p>
+        <p className="text-sm md:text-base text-gray-600">7/F, Millennium Trade Centre,</p>
         <p className="text-sm md:text-base text-gray-600">Kwai Chung, NT</p>
         <p className="text-sm md:text-base text-gray-600">[Postal code:852]</p>
       </div>
@@ -128,23 +124,20 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="mx-10">
+    <div className="">
       <Banner />
       <section className="bg-white dark:bg-gray-900 ">
-        <div className="py-8 lg:py-16 mx-auto max-w-screen-md">
+        <div className="py-8 px-6 lg:py-16 mx-auto max-w-screen-md">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
             Still need help?
           </h2>
           <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-            Got a technical issue? Want to send feedback about a beta feature?
-            Need details about our Business plan? Let us know.
+            Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let
+            us know.
           </p>
           <form onSubmit={sendEmail} className="space-y-8 col-span-2">
             <div>
-              <label
-                htmlFor="user_email"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
+              <label htmlFor="user_email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Your email
               </label>
               <input
@@ -157,10 +150,7 @@ const ContactForm = () => {
               />
             </div>
             <div>
-              <label
-                htmlFor="user_email"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
+              <label htmlFor="user_email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Subject
               </label>
               <input
@@ -172,10 +162,7 @@ const ContactForm = () => {
               />
             </div>
             <div className="sm:col-span-2">
-              <label
-                htmlFor="message"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-              >
+              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
                 Your message
               </label>
               <textarea
