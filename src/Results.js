@@ -169,18 +169,18 @@ function ResultsLists({
           hotelData.properties.map((hotel) => (
             <HotelCard
               name={hotel?.name}
-              img={hotel?.images[0].thumbnail}
-              nearby={hotel?.nearby_places ? hotel.nearby_places[0].name : "No nearby places"}
+              img={hotel?.images?.[0].thumbnail}
+              nearby={hotel?.nearby_places ? hotel.nearby_places?.[0].name : "No nearby places"}
               rating={hotel?.overall_rating * 2 || 9}
               pricePerNight={hotel?.rate_per_night?.extracted_lowest || 999}
               totalPrice={hotel?.total_rate?.extracted_lowest || 999}
               amenities={hotel?.amenities}
-              hotelstar={hotel.extracted_hotel_class || 999}
-              key={hotel.name}
-              reviewNumber={hotel.reviews}
-              id={hotel.property_token}
+              hotelstar={hotel?.extracted_hotel_class || 999}
+              key={hotel?.name}
+              reviewNumber={hotel?.reviews}
+              id={hotel?.property_token}
               isFavorite={favorites.some((e) => e.id === hotel.property_token)}
-              isInCart={Array.isArray(cart) && cart.some((item) => item.id === hotel.property_token)}
+              isInCart={Array.isArray(cart) && cart.some((item) => item.id === hotel?.property_token)}
               toggleFavorite={toggleFavorite}
               toggleCart={toggleCart}
             />

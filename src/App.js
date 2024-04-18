@@ -229,8 +229,8 @@ function App() {
                   config={config}
                   messageParser={MessageParser}
                   actionProvider={ActionProvider}
-                  messageHistory={messageHistory}
-                  saveMessages={saveMessages}
+                  // messageHistory={messageHistory}
+                  // saveMessages={saveMessages}
                 />
               </div>
             )}

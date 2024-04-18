@@ -975,11 +975,11 @@ const countriesList = [
 function InputDemo({ params, setParams }) {
   return (
     <div className="relative">
-      <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+      <Search className="absolute left-2.5 top-2.5 h-4 text-muted-foreground" />
       <Input
         type="text"
         placeholder="Search city, hotel..."
-        className="pl-8 w-64"
+        className="pl-8 w-full md:w-64"
         value={params}
         onChange={(e) => setParams(`${e.target.value}`)}
         autoFocus="autoFocus"
@@ -993,7 +993,7 @@ function CountryComboBox({ value, setValue }) {
   return (
     <Popover open={open} onOpenChange={setOpen} className="">
       <PopoverTrigger asChild>
-        <Button variant="outline" role="combobox" aria-expanded={open} className="w-48 justify-between">
+        <Button variant="outline" role="combobox" aria-expanded={open} className="w-full justify-between md:w-48">
           {value
             ? countriesList.find((framework) => framework.country_name === value)?.country_name
             : "Required: countries"}
@@ -1033,7 +1033,7 @@ function DatePickerWithRange({ className, date, setDate }) {
           <Button
             id="date"
             variant={"outline"}
-            className={cn("w-60 justify-start text-left font-normal", !date && "text-muted-foreground")}
+            className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground w-60 ")}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />
             {date?.from ? (
@@ -1085,7 +1085,7 @@ function PopoverDemo({ adult, setAdult, children, setChildren, childrenAge, setC
       <Users className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline" className="pl-8 w-56">
+          <Button variant="outline" className="pl-8 w-full md:w-56">
             Adults: {adult} Non-Adults: {children}
           </Button>
         </PopoverTrigger>
@@ -1297,25 +1297,23 @@ export function SortFunction({ hotelData, originalHotelData, setHotelData }) {
     setHotelData(originalHotelData);
     console.log(hotelData);
   }
-  function sortingPrice() {
-    const sortingList = [...hotelData.properties];
-    sortingList.sort(function (a, b) {
-      if (a.rate_per_night.extracted_lowest < b.rate_per_night.extracted_lowest) return 1;
-      if (a.rate_per_night.extracted_lowest > b.rate_per_night.extracted_lowest) return -1;
-      return 0;
-    });
-    setHotelData(sortingList);
-    console.log("sorting price", hotelData.properties);
+  function sortingPrice(hotelData, setHotelData) {
+    const sortingList = [...hotelData?.properties];
+    console.log(sortingList);
+    sortingList.sort((a, b) => a.rate_per_night.extracted_lowest - b.rate_per_night.extracted_lowest);
+    console.log(sortingList);
+    const testingObject = Object.assign({ properties: [...sortingList] });
+    setHotelData(testingObject);
+    console.log(testingObject);
   }
-  function sortingRating() {
-    const sortingList = [...hotelData.properties];
-    sortingList.sort(function (a, b) {
-      if (a.overall_rating < b.overall_rating) return -1;
-      if (a.overall_rating > b.overall_rating) return 1;
-      return 0;
-    });
-    setHotelData(sortingList);
-    console.log("sorting rating", hotelData.properties);
+  function sortingRating(hotelData, setHotelData) {
+    const sortingList = [...hotelData?.properties];
+    console.log(sortingList);
+    sortingList.sort((a, b) => b.overall_rating - a.overall_rating);
+    console.log(sortingList);
+    const testingObject = Object.assign({ properties: [...sortingList] });
+    setHotelData(testingObject);
+    console.log(testingObject);
   }
   // console.log(hotelData);
   return (
@@ -1344,7 +1342,7 @@ export function SortFunction({ hotelData, originalHotelData, setHotelData }) {
       <ToggleGroupItem
         className=" font-normal text-xl px-4 focus:bg-[#ABD7D9] focus:border border-gray-400 "
         value="b"
-        onClick={sortingPrice}
+        onClick={() => sortingPrice(hotelData, setHotelData)}
       >
         <svg
           className="inline mr-1"
@@ -1366,7 +1364,7 @@ export function SortFunction({ hotelData, originalHotelData, setHotelData }) {
       <ToggleGroupItem
         className=" font-normal text-xl px-4 focus:bg-[#ABD7D9] focus:border border-gray-400"
         value="c"
-        onClick={sortingRating}
+        onClick={() => sortingRating(hotelData, setHotelData)}
       >
         <svg
           className="inline mr-1"
