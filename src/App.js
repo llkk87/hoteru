@@ -60,6 +60,8 @@ function App() {
   //   getHotelData();
   // }, []);
 
+  const [loading, setLoading] = useState(true);
+
   let userDataRef;
   if (currentUser) {
     userDataRef = collection(db, currentUser.uid);
@@ -74,19 +76,15 @@ function App() {
       const filteredUserData = userData.docs.map((doc) => doc.data());
 
       const userFavorites = filteredUserData.find((item) => item.hotelList)?.hotelList;
-      console.log("userFavorites:", userFavorites);
       setFavorites(userFavorites);
 
       const userCart = filteredUserData.find((item) => item.cartList)?.cartList;
-      console.log("userCart:", userCart);
       setCart(userCart);
-      setTotal(userCart && userCart.map((e) => e.totalPrice));
 
       const userRec = filteredUserData.find((item) => item.items)?.items;
-      console.log("userRec", userRec);
       setRecord(userRec);
-      console.log("HERE", filteredUserData);
-      // userCart.map((e) => e.totalPrice);;
+
+      setLoading(false);
     } catch (error) {
       console.log("fetch user data error", error);
     }
@@ -164,6 +162,8 @@ function App() {
                     cart={cart}
                     setCart={setCart}
                     getUserData={getUserData}
+                    loading={loading}
+                    setLoading={setLoading}
                   />
                 }
               />
@@ -616,7 +616,7 @@ function Hamburger({ openHamburger, onOpenHamburger }) {
       <div className="fixed inset-y-0 right-0 flex flex-col bg-black opacity-90 w-screen h-screen overflow-auto z-40 "></div>
       <div className="fixed inset-y-0 right-0 flex flex-col bg-white w-2/3 h-screen overflow-auto z-50 ">
         <nav className="flex flex-col justify-evenly text-3xl p-10 h-[80%] w-full">
-          <Link to="/home" className="hover:text-[#568991]" onClick={() => onOpenHamburger(false)}>
+          <Link to="/" className="hover:text-[#568991]" onClick={() => onOpenHamburger(false)}>
             Home
           </Link>
           <Link to="/about" className="hover:text-[#568991]" onClick={() => onOpenHamburger(false)}>

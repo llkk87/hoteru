@@ -6,6 +6,7 @@ import { useAuth } from "./AuthContext";
 import { HotelCard } from "./HotelCard";
 import { SearchFunction, SortFunction } from "./mycomponents";
 import { FilterFunction } from "./mycomponents";
+import LoadingGif from "./img/loading.gif";
 
 export default function Results({
   hotelData,
@@ -17,12 +18,15 @@ export default function Results({
   cart,
   setCart,
   getUserData,
+  loading,
+  isLoading,
 }) {
   useAuth();
   return (
     <div>
       <div className="w-auto mx-10 md:flex mt-10 justify-center">
         <FilterFunction hotelData={hotelData} setHotelData={setHotelData} originalHotelData={originalHotelData} />
+
         <ResultsLists
           hotelData={hotelData}
           favorites={favorites}
@@ -32,6 +36,8 @@ export default function Results({
           getUserData={getUserData}
           setHotelData={setHotelData}
           originalHotelData={originalHotelData}
+          loading={loading}
+          isLoading={isLoading}
         />
       </div>
     </div>
@@ -63,6 +69,8 @@ function ResultsLists({
   cart,
   setCart,
   getUserData,
+  loading,
+  isLoading,
 }) {
   // const NEARBY = hotel.nearby_places ? hotel.nearby_places[0].name : "No nearby places";
 
@@ -153,7 +161,7 @@ function ResultsLists({
   return (
     <div className="">
       <SortFunction hotelData={hotelData} originalHotelData={originalHotelData} setHotelData={setHotelData} />
-
+      {hotelData ? "" : <img src={LoadingGif} alt="Loading..." className="mx-auto h-32 w-32 block p-5 m-5" />}
       <ul className="hotel-cards">
         {hotelData &&
           hotelData.properties &&

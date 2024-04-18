@@ -1298,23 +1298,24 @@ export function SortFunction({ hotelData, originalHotelData, setHotelData }) {
     console.log(hotelData);
   }
   function sortingPrice() {
-    console.log(hotelData);
-    console.log(hotelData.properties);
-    hotelData.properties.sort(function (a, b) {
-      if (a.rate_per_night.extracted_lowest < b.rate_per_night.extracted_lowest) return -1;
-      if (a.rate_per_night.extracted_lowest > b.rate_per_night.extracted_lowest) return 1;
+    const sortingList = [...hotelData.properties];
+    sortingList.sort(function (a, b) {
+      if (a.rate_per_night.extracted_lowest < b.rate_per_night.extracted_lowest) return 1;
+      if (a.rate_per_night.extracted_lowest > b.rate_per_night.extracted_lowest) return -1;
       return 0;
     });
-    setHotelData(hotelData);
+    setHotelData(sortingList);
+    console.log("sorting price", hotelData.properties);
   }
   function sortingRating() {
-    console.log(hotelData.properties);
-    hotelData.properties.sort(function (a, b) {
-      if (a.overall_rating < b.overall_rating) return 1;
-      if (a.overall_rating > b.overall_rating) return -1;
+    const sortingList = [...hotelData.properties];
+    sortingList.sort(function (a, b) {
+      if (a.overall_rating < b.overall_rating) return -1;
+      if (a.overall_rating > b.overall_rating) return 1;
       return 0;
     });
-    setHotelData(hotelData);
+    setHotelData(sortingList);
+    console.log("sorting rating", hotelData.properties);
   }
   // console.log(hotelData);
   return (
@@ -1458,7 +1459,13 @@ export function FilterFunction({ hotelData, originalHotelData, setHotelData }) {
           </div>
         ))}
       </div>
-      <Button className="m-1 ml-0" onClick={() => unSelectAll(checkedState, setCheckedState)}>
+      <Button
+        className="m-1 ml-0"
+        onClick={() => {
+          unSelectAll(checkedState, setCheckedState);
+          setHotelData(originalHotelData);
+        }}
+      >
         Clear
       </Button>
       <Button className="m-1" onClick={() => handleFilter(amenitiesCounts, checkedState, hotelData)}>
