@@ -80,6 +80,7 @@ function App() {
 
       const userCart = filteredUserData.find((item) => item.cartList)?.cartList;
       setCart(userCart);
+      setTotal(userCart.map((e) => e.totalPrice));
 
       const userRec = filteredUserData.find((item) => item.items)?.items;
       setRecord(userRec);
@@ -451,7 +452,22 @@ function Layout({ hotelData, setHotelData, originalHotelData, setOriginalHotelDa
                 </div>
               </div>
             )}
-
+            {!currentUser && (
+              <div className="inline md:hidden">
+                <Link
+                  to={"/login"}
+                  className="mr-4 bg-[#75bdc8] hover:bg-[#568991] text-white py-1 px-2 rounded font-bold focus:outline-none focus:shadow-outline"
+                >
+                  Log In
+                </Link>
+                <Link
+                  to={"/signup"}
+                  className="border-[#75bdc8] border-[2px] bg-white  hover:bg-[#568991] hover:text-white font-semibold text-black py-[2px] px-1 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
             <button className="mostRight-right ml-4 md:hidden" onClick={() => setOpenHamburger(true)}>
               <img src={hamburger} alt="menu" className="h-8" />
             </button>

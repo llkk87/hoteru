@@ -1390,7 +1390,7 @@ export function SortFunction({ hotelData, originalHotelData, setHotelData }) {
 export function FilterFunction({ hotelData, originalHotelData, setHotelData }) {
   const [amenitiesCounts, setAmenitiesCounts] = useState([]);
   const [checkedState, setCheckedState] = useState(
-    [] // or  amenitiesList?.size
+    Array(50).fill(false) // or  amenitiesList?.size
   );
   useEffect(() => {
     let emptyArray = [];
@@ -1404,11 +1404,11 @@ export function FilterFunction({ hotelData, originalHotelData, setHotelData }) {
         emptyArray.push({ amenities: e, count: countingAmenities.length });
       }
       setAmenitiesCounts(emptyArray);
-      setCheckedState(Array(amenitiesCounts?.length).fill(false));
+      // setCheckedState(Array(amenitiesCounts?.length).fill(false));
     }
   }, [originalHotelData]);
   // console.log(amenitiesCounts);
-  // console.log(checkedState);
+  console.log("CHECK", checkedState);
   const handleOnChange = (position, checkedState, setCheckedState) => {
     // done
     console.log(checkedState);

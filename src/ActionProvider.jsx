@@ -38,14 +38,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
 
-  const handleFuck = () => {
-    const botMessage = createChatBotMessage("你冇撚野呀嘛 唔望下自己咩閪樣？");
-    setState((prev) => ({
-      ...prev,
-      messages: [...prev.messages, botMessage],
-    }));
-  };
-
   const addMessageToState = (message) => {
     setState((prevState) => ({
       ...prevState,
@@ -104,7 +96,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             handleRecommendation,
             handleError,
             handleHello,
-            handleFuck,
           },
         })
       )}

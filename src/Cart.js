@@ -24,7 +24,7 @@ export default function Cart({
   total.forEach((num) => {
     sum += num;
   });
-  console.log("TEST", sum);
+  console.log("TEST", total);
 
   // let totalSum = 0;
   // totalSum.forEach((num) => {
@@ -162,7 +162,7 @@ function CartList({ favorites, setFavorites, favoritesId, setFavoritesId, cart, 
               id={hotel.id}
               toggleFavorite={toggleFavorite}
               toggleCart={toggleCart}
-              nearby={hotel.nearby || "No nearby places"}
+              nearby={""}
               hideFavoriteBtn={true}
               isInCart={true}
             />
@@ -171,7 +171,7 @@ function CartList({ favorites, setFavorites, favoritesId, setFavoritesId, cart, 
       <div className="flex flex-col items-end p-4 space-y-2 mb-6">
         <p className="py-2 text-2xl mr-10">
           <span className="text-base text-gray-700">Total: </span>$ {sum}
-        </p>{" "}
+        </p>
         {/* 這裡需要total */}
         <Link
           to="/payment"

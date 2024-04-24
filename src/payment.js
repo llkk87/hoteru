@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { addDoc, collection, doc, getDocs, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "./AuthContext";
 import { db } from "./firebase";
+import { useNavigate } from "react-router-dom";
 
 const PaymentPage = ({ cart, setCart, total }) => {
+  const navigate = useNavigate();
+
   let sum = 0;
   total.forEach((num) => {
     sum += num;
@@ -63,14 +66,14 @@ const PaymentPage = ({ cart, setCart, total }) => {
       } catch (error) {
         console.error("Error clearing cart:", error);
       }
-      window.location.href = "/record";
+      navigate("/orderrecord");
     };
     await clearCart();
   };
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex mt-20">Total: {sum}</div>
+      <div className="inline-block mt-10 mx-auto w-full text-center text-2xl">Total: {sum}</div>
       <div className="w-full max-w-md mx-auto">
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">
